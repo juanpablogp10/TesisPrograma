@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Editor</title>
+    </h:head>
+    <h:body>
+        <b style="font-weight: normal;">
+            4. juan carllsos</b>
+         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <h:form>
+            <p:growl id="msgs" showDetail="true" />
+            <p:panel  header="Select a Location" style="margin-bottom:50px;">
+                <h:panelGrid columns="2" cellpadding="5">
+                    <p:outputLabel for="country" value="Country: " />
+                    <p:selectOneMenu id="country" value="#{dropdownView.country}" style="width:150px">
+                        <p:ajax listener="#{dropdownView.onCountryChange}" update="city" />
+                        <f:selectItem itemLabel="Select Country" itemValue="" noSelectionOption="true" />
+                        <f:selectItems value="#{dropdownView.countries}" />
+                    </p:selectOneMenu>
+
+                    <p:outputLabel for="city" value="City: " />
+                    <p:selectOneMenu id="city" value="#{dropdownView.city}" style="width:150px">
+                        <f:selectItem itemLabel="Select City" itemValue="" noSelectionOption="true" />
+                        <f:selectItems value="#{dropdownView.cities}" />
+                    </p:selectOneMenu>
+                </h:panelGrid>
+
+                <p:separator />
+
+                <p:commandButton value="Submit" update="msgs" actionListener="#{dropdownView.displayLocation}" icon="ui-icon-check" />
+            </p:panel>
+        </h:form>
+    </h:body>
+</html>
+

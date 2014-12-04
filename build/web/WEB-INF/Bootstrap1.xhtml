@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="#{request.contextPath}/bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet"/>
+        <link href="#{request.contextPath}/bootstrap/css/bootstrap-theme.css" type="text/css" rel="stylesheet"/>
+        <link href="#{request.contextPath}/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+        <link href="#{request.contextPath}/bootstrap/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet"/>
+        <style type="text/css">
+            .span3{
+                background: #ffffff;		
+            }
+            .span9{
+                background: windowframe;	
+            }
+            .span3{
+                min-height: 380px;
+
+                .span9{
+                    min-height: 70px;
+                }
+
+
+            </style>
+            <title>UNL-CIS</title>
+            <link href="../bootstrap/imagenes/unll.jpg" type="image/x-icon" rel="shortcut icon" />
+        </h:head>
+
+    <h:body style=" background: #DAD5FF">
+
+            <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" >
+                <div class="container" >
+                    <div class="navbar-header"  >
+                        <br/>
+                        <h:panelGrid style="column-width: 20px" columns="3" cellspacing="30px" cellpadding="30px" border="">
+                                <img src="../bootstrap/imagenes/LOGO.png" width="50" height="50" alt="LOGO"/>
+                                <h:outputLabel style="color: #ffffff; font-size: 20px"  value="CIS-UNL">
+                                </h:outputLabel>
+                            </h:panelGrid>
+                            <br/>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <ui:insert name="content">
+
+
+                    </ui:insert>
+                </div>
+            
+            </h:body>
+
+
+        </html>

@@ -1,0 +1,309 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/WEB-INF/BootstrapT.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui" 
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <center><h:outputLabel  style="color:  #285e8e;font-family: ArialBlack;font-size: 32px">Plataforma TCexam Preguntas </h:outputLabel></center>
+
+        <p:panel id="ba" header="Editor">
+            <h:form id="j1" >
+                <p:messages id="messages" showDetail="true"   autoUpdate="true" closable="true" />
+                <p:toolbar>
+                    <f:facet name="left">
+                        <h:outputLabel value="(Ctrl+c) en Documento de texto" ></h:outputLabel><br/>
+                        <h:outputLabel value="(Ctrl+v) en Área de texto " ></h:outputLabel>
+                    </f:facet>
+                    <f:facet name="right">
+                        <p:commandButton   oncomplete="PF('dlg11').show();" id ="y25"  icon="ui-icon-bookmark"  title="Formato Preguntas TCexam "   >
+                        </p:commandButton>
+                        <p:commandButton   actionListener="#{controladorTCxam.generarPDF}" id ="y255" update=":informe" icon="ui-icon-document"  title="Generar Informe PDF "   >
+                        </p:commandButton>
+                        <p:commandButton   oncomplete="PF('dlg5').show();" id ="y215"  icon="ui-icon-circle-plus"  title="Agregar Preguntas Nuevas"   >
+                        </p:commandButton>
+                        <p:commandButton   actionListener="#{controladorTCxam.errores_preguntas1}" id ="y2"  icon="ui-icon-circle-arrow-s"  title="Descargar Archivo XML" update=":formularioe"   >
+                        </p:commandButton>
+                    </f:facet>
+                </p:toolbar>
+                <p:panel id="b1" >
+                    <h:inputTextarea id="display" rows ="10" style="width: 100%;"  title=" Plataforma TCexam: Copiar Preguntas de archivos  (Word, txt. csv.) "  value="#{controladorTCxam.editor}" />
+
+                </p:panel>
+
+            </h:form>
+            <br></br> 
+        </p:panel>
+        <p:dialog id="mod" header="Modal Dialog" closable="false" widgetVar="dlg2" modal="true" height="450" width="850">
+            <p:panelGrid id="pan" columns="1">
+                <h:form id="formularioe">
+                    <p:dataTable id="tabla" var="car" value="#{controladorTCxam.listaPreguntasMalas}" rows="5"
+                                 paginator="true"
+                                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                 rowsPerPageTemplate="5,10,15">
+                        <p:column headerText="ID" style="width:30px">
+                            <h:outputText value="#{car.id}" />
+                        </p:column>
+                        <p:column headerText="Estado" style="width:140px">
+                            <h:outputText value="#{car.estado}" />
+                        </p:column>
+                        <p:column headerText="" style="width:32px;text-align: center">
+                            <p:commandButton oncomplete="PF('dlg7').show();" id ="but" update=":er"    action="#{controladorTCxam.editordeError}" value="Corregir"  icon="ui-icon-gear" title="Corregir Errores">
+                                <f:setPropertyActionListener  value="#{car}" target="#{controladorTCxam.analisisSintacticoSeleccionado}" ></f:setPropertyActionListener>
+                            </p:commandButton>
+                        </p:column>
+                    </p:dataTable>
+                    <p:commandButton  update=":j1"  style="margin-bottom: 10px;margin: 10px" icon="ui-icon-circle-close" value="cancelar" oncomplete="PF('dlg2').hide();"></p:commandButton>
+                </h:form>
+            </p:panelGrid>
+        </p:dialog> 
+
+
+
+        <p:dialog header="Herrores " widgetVar="dlg7" modal="true" height="430" width="1000">
+            <p:panelGrid columns="1">
+                <p:messages id="messages1" showDetail="true" autoUpdate="true" closable="true" />
+                <h:form id="er">
+                    <h:outputText value="#{controladorTCxam.mensajeAyuda}"></h:outputText>
+                    <p:panel header="Editor">
+                        <h:inputTextarea cols="110" rows="10" value="#{controladorTCxam.editorErrores}"  ></h:inputTextarea>
+
+                    </p:panel>
+                    <p:commandButton icon="ui-icon-circle-close" style="margin-bottom: 10px;margin: 10px" oncomplete="PF('dlg7').hide();" id ="y22"    value="Cancelar"    >
+                    </p:commandButton>
+                    <p:commandButton actionListener="#{controladorTCxam.corregirErrores}"   id="sta7" update=":formularioe"  icon="ui-icon-circle-triangle-e"  value="Verificar"   >
+                    </p:commandButton>
+
+                </h:form>
+            </p:panelGrid>
+        </p:dialog> 
+        <p:dialog header="Generar Informe PDF  " widgetVar="dlg10" modal="true" height="350" width="1000">
+            <h:form id="informe">
+                <p:editor value="#{controladorTCxam.informe}"  ></p:editor>
+
+                <p:commandButton icon="ui-icon-circle-close" style="margin-bottom: 10px;margin: 10px" oncomplete="PF('dlg10').hide();" id ="inf"    value="Cerrar"    >
+                </p:commandButton>
+            </h:form>
+        </p:dialog> 
+
+
+        <p:dialog id="mod1" header="Modal Dialog"  widgetVar="dlg3" modal="true" height="300" width="900">
+            <h:form id="formularioe1">
+                <p:panel header=" Datos de Examen" >
+                    <p:panelGrid  id="pan1" columns="2" style="width: 100%">
+                        <p:outputLabel value="Tema :"></p:outputLabel>
+                        <p:outputLabel value="#{controladorTCxam.tema_TCexam.tema}"></p:outputLabel>
+                        <p:outputLabel value="Topico :"></p:outputLabel>
+                        <p:outputLabel value="#{controladorTCxam.topico_TCexam.topico}"></p:outputLabel>
+
+                    </p:panelGrid>
+                    <p:commandButton icon="ui-icon-circle-close" style="margin-bottom: 10px;margin: 10px" oncomplete="PF('dlg3').hide();" id ="y22"    value="Cerrar"    >
+                    </p:commandButton>
+                    <p:commandButton value="Descargar" ajax="false"  icon="ui-icon-arrowthick-1-s">
+                        <p:fileDownload value="#{fileDownloadViewTCexam.file}" />
+                    </p:commandButton>
+                </p:panel>
+            </h:form>
+        </p:dialog> 
+
+        <p:dialog id="mod113" closable="false" header="Tipos De Preguntas TCexam" widgetVar="dlg5" modal="true" height="320" width="350">
+            <h:form id="for">
+                <center>
+                    <p:panelGrid columns="3" style="alignment-adjust: central">
+                        <h:outputText value="Seleccion Simple"></h:outputText>
+                        <img src="../bootstrap/imagenes/tipo1.png" width="60" height="55" alt="unll"/>
+                        <p:commandButton oncomplete="PF('dlg4').show();" icon="ui-icon-circle-arrow-e" value="Crear" update=":mod11" actionListener="#{controladorTCxam.llamarSimple}">      </p:commandButton>
+                        <h:outputText value="Seleccion Multiple"></h:outputText>
+                        <img src="../bootstrap/imagenes/tipo2.png" width="60" height="55" alt="unll"/>
+                        <p:commandButton oncomplete="PF('dlg4').show();" icon="ui-icon-circle-arrow-e" value="Crear" update=":mod11" actionListener="#{controladorTCxam.llamaMultiple}">      </p:commandButton>
+                        <h:outputText value="Ordenar Respuestas"></h:outputText>
+                        <img src="../bootstrap/imagenes/tipo4.png" width="60" height="55" alt="unll"/>
+                        <p:commandButton oncomplete="PF('dlg4').show();" icon="ui-icon-circle-arrow-e" value="Crear" update=":mod11" actionListener="#{controladorTCxam.llamarOrdenar}">      </p:commandButton>
+                        <h:outputText value="Pregunta Ensayo"></h:outputText>
+                        <img src="../bootstrap/imagenes/tipo5.png" width="60" height="55" alt="unll"/>
+                        <p:commandButton oncomplete="PF('dlg4').show();" icon="ui-icon-circle-arrow-e" value="Crear" update=":mod11" actionListener="#{controladorTCxam.llamarSimple}">      </p:commandButton>
+
+                    </p:panelGrid>
+
+                    <p:commandButton actionListener="#{controladorTCxam.actualizarEditor}" update=":j1" icon="ui-icon-circle-close" style="margin-bottom: 10px;margin: 5px" oncomplete="PF('dlg5').hide();" id ="y22"    value="Cerrar"    >
+                    </p:commandButton>
+                </center>
+            </h:form>
+        </p:dialog> 
+
+
+
+
+        <p:dialog id="mod11" header="#{controladorTCxam.tipoPregunta}" widgetVar="dlg4" modal="true" height="400" width="970">
+            <h:form id="form">
+                <p:messages id="mesis" showDetail="true" autoUpdate="true" closable="true" />
+                <p:toolbar>
+                    <f:facet name="left">
+                        <h:outputText value="Pregunta"></h:outputText>
+                    </f:facet>
+                    <f:facet name="right">
+                        <p:commandButton icon="ui-icon-disk" update=":form" actionListener="#{controladorTCxam.agregarPreguntaSimpleTCexam}" value="Guardar Pregunta"></p:commandButton>
+                        <p:commandButton icon="ui-icon-closethick" value="Cancelar"></p:commandButton>
+                    </f:facet>
+                </p:toolbar>
+                <h:panelGrid columns="2" cellpadding="10">
+                    <h:outputText style="color: #285e8e;margin: 15px"  value="Agregar Pregunta *"></h:outputText>
+                    <h:inputTextarea required="true" requiredMessage="Ingrese Pregunta" rows="3" cols="75" value="#{controladorTCxam.pregunta.pregunta}" style="color: #285e8e;margin: 18px"></h:inputTextarea>
+
+                </h:panelGrid>
+                <p:toolbar>
+                    <f:facet name="left">
+                        <h:outputText value="Respuestas"></h:outputText>
+                    </f:facet>
+                    <f:facet name="right">
+                        <p:commandButton icon="ui-icon-plusthick" value="Agregar Respuesta" update=":respuesta" actionListener="#{controladorTCxam.abrirAgregarpregunta}"></p:commandButton>
+                    </f:facet>
+                </p:toolbar>
+
+                <p:dataTable id="tabla" var="car" value="#{controladorTCxam.pregunta.listaRespuesta}" rows="2"
+                             paginator="true"
+                             paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                             rowsPerPageTemplate="2,4,8">
+                    <p:column headerText="ID" style="width:10px">
+                        <h:outputText value="#{car.identificador}" />
+                    </p:column>
+                    <p:column headerText="Estado" style="width:140px">
+                        <h:outputText value="#{car.respuesta}" />
+                    </p:column>
+                    <p:column headerText="Estado" style="width:20px">
+                        <h:outputText value="#{car.estado}" />
+                    </p:column>
+                    <p:column headerText="" style="width:32px;text-align: center">
+                        <p:commandButton  id ="but" update=":form"    action="#{controladorTCxam.eliminarRespuesta}"   icon="ui-icon-circle-close" title="Eliminar">
+                            <f:setPropertyActionListener  value="#{car}" target="#{controladorTCxam.respuesta}" ></f:setPropertyActionListener>
+                        </p:commandButton> 
+                        <p:commandButton oncomplete="PF('dlg6').show();" id ="but3" update=":respuesta"      icon="ui-icon-pencil" title="Editar">
+                            <f:setPropertyActionListener  value="#{car}" target="#{controladorTCxam.respuesta}" ></f:setPropertyActionListener>
+                        </p:commandButton> 
+                    </p:column>
+                </p:dataTable>
+
+
+            </h:form>
+        </p:dialog> 
+
+        <p:dialog header="Agregar Respuesta" closable="false" widgetVar="dlg6" modal="true" height="300" width="970">
+            <h:form id="respuesta">
+                <p:messages id="mesis" autoUpdate="true" showDetail="true" closable="true" />
+                <p:panel header="Respuesta">
+                    <p:panelGrid columns="2">
+                        <h:outputText style="color: #285e8e;margin: 10px" value="Respuesta *"></h:outputText>
+                        <h:inputTextarea  required="true" id="sim" requiredMessage="Ingresar Respuesta" cols="75" rows="4" value="#{controladorTCxam.respuesta.respuesta}" style="color: #285e8e;margin: 5px"></h:inputTextarea>
+                    </p:panelGrid>
+                    <h:outputText style="color: #285e8e" value="Campo obligatorio "></h:outputText><br/>
+                    <a onclick="PF('dlg6').hide();">
+                        <p:commandButton  style="margin: 15px" icon="ui-icon-circle-close"   id ="y22"    value="Cancelar"    >
+                        </p:commandButton>
+                    </a>
+                    <p:commandButton icon="ui-icon-circle-check" value="Agregar" update=":form" actionListener="#{controladorTCxam.agregarRespuestaSimple}"></p:commandButton>
+                </p:panel>
+
+
+            </h:form>
+        </p:dialog> 
+        <p:dialog header="Agregar Pregunta Ensayo" closable="false" widgetVar="dlg8" modal="true" height="300" width="970">
+            <h:form id="ensayo">
+                <p:messages id="mesissdd" autoUpdate="true" showDetail="true" closable="true" />
+                <p:panel header="Respuesta">
+                    <p:panelGrid columns="2">
+                        <h:outputText style="color: #285e8e;margin: 10px" value="Respuesta *"></h:outputText>
+                        <h:inputTextarea  required="true" id="simw" requiredMessage="Ingresar Respuesta" cols="75" rows="4" value="#{controladorTCxam.pregunta.pregunta}" style="color: #285e8e;margin: 5px"></h:inputTextarea>
+                    </p:panelGrid>
+                    <h:outputText style="color: #285e8e" value="Campo obligatorio "></h:outputText><br/>
+                    <a onclick="PF('dlg8').hide();">
+                        <p:commandButton  style="margin: 15px" icon="ui-icon-circle-close"   id ="y2w2"    value="Cancelar"    >
+                        </p:commandButton>
+                    </a>
+                    <p:commandButton icon="ui-icon-circle-check" value="Agregar"  actionListener="#{controladorTCxam.agregarPreguntasEnsayo}" ></p:commandButton>
+                </p:panel>
+
+
+            </h:form>
+        </p:dialog>
+        
+        <p:dialog header="Formato Preguntas TCexam"  widgetVar="dlg11" modal="true" height="300" width="970">
+                <p:tabView orientation="left">
+                    <p:tab title="1. Opción múltiple respuesta individual">
+                        <h:outputText style="color: #080808"
+                                      value="Preguntas de opción múltiple, con una respuesta, este tipo de preguntas deben tener una numeración ejemplo  1. ó  1) , Las respuestas deben empezar con una numeración de letras ejemplo a. ó a),  marcar la respuesta correcta con asterisco (*) ejemplo :"  />
+                        <h:panelGrid columns="1" cellpadding="10">
+                            <h:outputText style="color: #285e8e" value="1. Pregunta de Selección múltiple (1 respuesta)"></h:outputText>
+                            <h:outputText style="color: #285e8e;margin-left: 15px" value="a. Respuesta errónea"></h:outputText>
+                            <h:outputText style="color: #285e8e;margin-left: 15px" value="b. Respuesta correcta *"></h:outputText>
+                            <h:outputText style="color: #285e8e;margin-left: 15px" value="c. Respuesta errónea"></h:outputText>
+                            <h:outputText style="color: #285e8e;margin-left: 15px" value="d. Respuesta errónea"></h:outputText>
+                        </h:panelGrid>
+
+                    </p:tab>
+                    <p:tab title="2. Opción Múltiple Respuesta Múltiple">
+                          <h:outputText style="color: #080808"
+                                      value="Preguntas de opción múltiple, con varias respuestas, este tipo de preguntas deben tener una numeración ejemplo  1. ó  1) , Las respuestas deben empezar con una numeración de letras ejemplo a. ó a),  marcar las respuestas correctas con asterisco (*) ejemplo :"  />
+                        <h:panelGrid columns="1" cellpadding="10">
+                            <h:outputText style="color: #285e8e" value="1. Pregunta de Selección múltiple (varias respuestas)"></h:outputText>
+                            <h:outputText style="color: #285e8e;margin-left: 15px" value="a. Respuesta errónea"></h:outputText>
+                            <h:outputText style="color: #285e8e;margin-left: 15px" value="b. Respuesta correcta *"></h:outputText>
+                            <h:outputText style="color: #285e8e;margin-left: 15px" value="c. Respuesta errónea"></h:outputText>
+                            <h:outputText style="color: #285e8e;margin-left: 15px" value="d. Respuesta correcta *"></h:outputText>
+                        </h:panelGrid>
+                    </p:tab>
+                    <p:tab title="3. Ordenar Respuestas">
+                        <h:panelGrid columns="2" cellpadding="10">
+                            <img src="../bootstrap/imagenes/tc.gif" width="60" height="55" alt="unll"/>
+                            <h:outputText value="After a break of more than 15 years..." />
+                        </h:panelGrid>
+                    </p:tab>
+                    <p:tab title="5. Preguntas subjetiva o de desarrollo">
+                        <h:panelGrid columns="2" cellpadding="10">
+                            <img src="../bootstrap/imagenes/tc.gif" width="60" height="55" alt="unll"/>
+                            <h:outputText value="After a break of more than 15 years..." />
+                        </h:panelGrid>
+                    </p:tab>
+                </p:tabView>
+        </p:dialog>
+
+        <a style="margin-bottom: 5px;margin-top: 5px" href="HerramientaTcexam.xhtml" class="btn btn-primary"> <span class="glyphicon glyphicon-circle-arrow-left"></span> Atrás  </a>
+        <br></br>
+        <div class="span9">
+            <table >
+                <tbody>
+                    <tr>
+                        <td> <br><h1 style="color:#DAD5FF">.</h1></br></td>
+                        <td> <img src="../bootstrap/imagenes/unll_1.jpg" width="60" height="55" alt="unll"/></td>
+                        <td> <br><h1 style="color:#DAD5FF">.</h1></br></td>
+                        <td> <h:outputLabel style="color: #285e8e;font-family: Arial;font-size: 15px">Universidad Nacional de Loja</h:outputLabel><br/> <a href="https://">unl.edu.ec</a></td>
+                        <td> <br><h1 style="color:#DAD5FF">.....</h1></br></td>
+                        <td> <img src="../bootstrap/imagenes/es.png" width="60" height="55" alt="unll"/></td>
+                        <td> <br><h1 style="color:#DAD5FF">.</h1></br></td>
+                        <td> <h:outputLabel style="color: #285e8e;font-family: Arial;font-size: 15px">Carrera de Ingenieria en Sistemas</h:outputLabel><br/> <a href="https://">areas.unl.edu.ec/energia/cis</a></td>
+                        <td> <br><h1 style="color:#DAD5FF">....</h1></br></td>
+                        <td> <img src="../bootstrap/imagenes/moodle.png" width="60" height="55" alt="unll"/></td>
+                        <td> <h:outputLabel style="color: #285e8e;font-family: Arial;font-size: 15px">Plataforma Moodle</h:outputLabel><br/><a href="https://">unl.edu.ec</a></td>
+                        <td> <br><h1 style="color:#DAD5FF">....</h1></br></td>
+                        <td> <img src="../bootstrap/imagenes/tc.gif" width="60" height="55" alt="unll"/></td>
+                        <td> <br><h1 style="color:#DAD5FF">.</h1></br></td>
+                        <td> <h:outputLabel style="color: #285e8e;font-family: Arial;font-size: 15px">Plataforma TCexam</h:outputLabel> <br/><a href="https://">tcexam.org</a></td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+        <br></br>
+
+    </ui:define>
+
+</ui:composition>

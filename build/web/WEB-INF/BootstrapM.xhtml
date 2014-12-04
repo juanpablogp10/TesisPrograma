@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="../bootstrap/css/bootstrap_1_1.css" type="text/css" rel="stylesheet"/>
+        <link href="../bootstrap/css/bootstrap-theme_1_1.css" type="text/css" rel="stylesheet"/>
+        <link href="../bootstrap/css/bootstrap.min_1_1.css" type="text/css" rel="stylesheet"/>
+        <link href="../bootstrap/css/bootstrap-theme.min_1_1.css" type="text/css" rel="stylesheet"/>
+        <script type="text/javascript" language="javascript" src="../bootstrap/css/bootstrap.js" ></script>
+        <style type="text/css">
+            .span3{
+                background: #ffffff;		
+            }
+            .span9{
+                background: #f7ecb5;	
+            }
+            .span3{
+                min-height: 380px;
+
+                .span9{
+                    min-height: 70px;
+                }
+
+
+            </style>
+            <title>UNL-CIS</title>
+            <link href="../bootstrap/imagenes/unll.jpg" type="image/x-icon" rel="shortcut icon" />
+        </h:head>
+
+        <h:body>
+
+            <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" >
+
+
+
+
+                <div class="container" >
+
+                    <div class="navbar-header"  >
+
+                        <br/>
+                        <img src="../bootstrap/imagenes/LOGO.png" width="50" height="50" alt="LOGO"/>
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" >
+                        <br/>
+                        <ul class="nav navbar-nav">
+                            <li class="#{fn:startsWith(request.pathInfo,'/Ayuda')?'active':'' } "><a style="color:#ffffff " href="index.xhtml"><span  style="color: #ffffff;font-size: 15px" class="glyphicon glyphicon-th"></span> Inicio</a> </li>
+                            </ul>
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown">
+                                    <a href="#" style="color:#ffffff " class="dropdown-toggle" data-toggle="dropdown"> <span  style="color: #ffffff;font-size: 15px" class="glyphicon glyphicon-tasks"></span>  TCexam <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li class="#{fn:startsWith(request.pathInfo,'/TCxamp')?'active':'' } "><a href="TCxamp.xhtml"><span  style="font-size: 15px" class="glyphicon glyphicon-book"></span>  Manual TCexam</a> </li>
+                                        <li class="divider"></li>
+                                        <li class="#{fn:startsWith(request.pathInfo,'/TCxamp')?'active':'' } "><a href="HerramientaTcexam.xhtml"><span  style="font-size: 15px" class="glyphicon glyphicon-cog"> </span>  Herramienta TCexam</a> </li>
+                                        <li class="divider"></li>
+                                        <li class="#{fn:startsWith(request.pathInfo,'/TCxamp')?'active':'' } "><a href="TCxamp.xhtml"><span  style=";font-size: 15px" class="glyphicon glyphicon-credit-card"> </span>  Pagina Oficial</a> </li>
+                                    </ul>
+                                </li>
+                            </ul>                         
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown">
+                                    <a style="color:#ffffff " href="#" class="dropdown-toggle" data-toggle="dropdown"> <span  style="color: #ffffff;font-size: 15px" class="glyphicon glyphicon-tasks"></span>  Moodle <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li class="#{fn:startsWith(request.pathInfo,'/TCxamp')?'active':'' } "><a href="Moodle.xhtml"><span  style="font-size: 15px" class="glyphicon glyphicon-book"></span>  Manual Moodle</a> </li>
+                                        <li class="divider"></li>
+                                        <li class="#{fn:startsWith(request.pathInfo,'/TCxamp')?'active':'' } "><a href="TCxamp.xhtml"><span  style="font-size: 15px" class="glyphicon glyphicon-cog"> </span>  Herramienta Moodle</a> </li>
+                                        <li class="divider"></li>
+                                        <li class="#{fn:startsWith(request.pathInfo,'/TCxamp')?'active':'' } "><a href="TCxamp.xhtml"><span  style="font-size: 15px" class="glyphicon glyphicon-credit-card"> </span>  Pagina Moodle</a> </li>
+                                    </ul>
+                                </li>
+                            </ul>                         
+
+
+
+                            <ul class="nav navbar-nav">
+                                <li class="#{fn:startsWith(request.pathInfo,'/Ayuda')?'active':'' } "><a style="color:#ffffff " href="Ayuda.xhtml"><span  style="color: #fffff;font-size: 15px" class="glyphicon glyphicon-question-sign"></span> Ayuda</a> </li>
+                            </ul>
+                            <br/>
+
+                        </div><!--/.nav-collapse -->
+                        <br/>
+
+                    </div>
+                </div>
+                <div class="container">
+                    <ui:insert name="content">
+
+
+                    </ui:insert>
+                </div>
+
+            </h:body>
+
+
+        </html>

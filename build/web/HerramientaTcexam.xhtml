@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/WEB-INF/BootstrapT.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html" 
+                xmlns:ck="http://code.google.com/ck-jsf-editor"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="content" >
+
+        <div class="contenett" >
+
+            <div class="row" >
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+               
+                <div   class="span7">
+                    <center><h:outputLabel  style="color:  #285e8e;font-family: ArialBlack;font-size: 32px">Plataforma TCexam  </h:outputLabel></center> 
+
+                    <h:form>
+                        <p:panel id="basic" header="Herramienta TCexam">
+                            <p:focus context="basic"/>
+                            <p:panelGrid columns="4">
+                                <h:outputText style="color: #285e8e" value="Tema *"></h:outputText>
+                                <p:inputText value="#{controladorTCxam.tema_TCexam.tema}" size="68" title="Ingresar Tema del Examen" id="tema"  tabindex="1" required="true" 
+                                             requiredMessage="Ingresar Tema ">
+
+                                </p:inputText>
+                                <p:tooltip id="toolTipFocus" for="tema" showEvent="focus" hideEvent="blur" />
+
+                                <p:message id="tem1" for="tema" style="color:blue"/>
+                                <h:outputText style="color: #285e8e" value="Topico *"></h:outputText>
+                                <p:inputText  value="#{controladorTCxam.topico_TCexam.topico}" size="68" id="topico" title="Ingresar Topico del Examen"  required="true" 
+                                              requiredMessage="Ingresar Topico"> </p:inputText>
+                                <p:tooltip id="toolTipFocus1" for="topico" showEvent="focus" hideEvent="blur" />
+                                <p:message id="tem2" for="topico" style="color:blue"/>
+                                <h:outputText style="color: #285e8e" value="Descripción del Tema " ></h:outputText>
+                                <p:inputTextarea value="#{controladorTCxam.tema_TCexam.descripcion}" title="Ingresar Descripción del tema del Examen" id="des" rows="5" cols="70"  queryDelay="750" minQueryLength="4" />
+                                <p:tooltip id="tooTipFocus2" for="des" showEvent="focus" hideEvent="blur" />
+                            </p:panelGrid>
+                            <h:outputText style="color: #048CAD" value="Campos Obligatorios (*)"></h:outputText>
+                        </p:panel>
+                        <br></br>
+                        <div align="right" ><a  href="index.xhtml" class="btn btn-primary"> Atrás</a> <h:commandButton style="margin-left: 30px" action="#{controladorTCxam.ir_tcexam}" value="Siguiente " class="btn btn-primary"></h:commandButton></div>
+                        <br></br>
+                    </h:form>
+
+                </div>
+                <div class="span9">
+                    <table >
+                        <tbody>
+                       <tr>
+                                <td> <br><h1 style="color:#DAD5FF">.</h1></br></td>
+                                <td> <img src="../bootstrap/imagenes/unll_1.jpg" width="60" height="55" alt="unll"/></td>
+                                <td> <br><h1 style="color:#DAD5FF">.</h1></br></td>
+                                <td> <h:outputLabel style="color: #285e8e;font-family: Arial;font-size: 15px">Universidad Nacional de Loja</h:outputLabel><br/> <a href="https://">unl.edu.ec</a></td>
+                                <td> <br><h1 style="color:#DAD5FF">.....</h1></br></td>
+                                <td> <img src="../bootstrap/imagenes/es.png" width="60" height="55" alt="unll"/></td>
+                                <td> <br><h1 style="color:#DAD5FF">.</h1></br></td>
+                                <td> <h:outputLabel style="color: #285e8e;font-family: Arial;font-size: 15px">Carrera de Ingenieria en Sistemas</h:outputLabel><br/> <a href="https://">areas.unl.edu.ec/energia/cis</a></td>
+                                <td> <br><h1 style="color:#DAD5FF">....</h1></br></td>
+                                <td> <img src="../bootstrap/imagenes/moodle.png" width="60" height="55" alt="unll"/></td>
+                                <td> <h:outputLabel style="color: #285e8e;font-family: Arial;font-size: 15px">Plataforma Moodle</h:outputLabel><br/><a href="https://">unl.edu.ec</a></td>
+                                <td> <br><h1 style="color:#DAD5FF">....</h1></br></td>
+                                <td> <img src="../bootstrap/imagenes/tc.gif" width="60" height="55" alt="unll"/></td>
+                                <td> <br><h1 style="color:#DAD5FF">.</h1></br></td>
+                                <td> <h:outputLabel style="color: #285e8e;font-family: Arial;font-size: 15px">Plataforma TCexam</h:outputLabel> <br/><a href="https://">tcexam.org</a></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+                <br></br>
+                <br></br>
+
+            </div> 
+
+        </div>
+
+
+    </ui:define>
+
+</ui:composition>

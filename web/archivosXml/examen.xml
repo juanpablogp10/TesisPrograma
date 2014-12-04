@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tcexamquestions version="12.1.016">
+  <header lang="en" date="2014-02-19 18:32:25">Titulo</header>
+  <body>
+    <module>
+      <name>Sistemas de Información I</name>
+      <enabled>true</enabled>
+      <subject>
+        <name>Capitulo 1</name>
+        <description>blabla</description>
+        <enabled>true</enabled>
+        <question>
+          <enabled>true</enabled>
+          <type>single</type>
+          <difficulty>1</difficulty>
+          <position />
+          <timer />
+          <fullscreen>false</fullscreen>
+          <inline_answers>false</inline_answers>
+          <auto_next>false</auto_next>
+          <description>¿Cómo funcionan los sistemas de conocimiento estructurado y semiestructurado?</description>
+          <explanation />
+          <answer>
+            <enabled>true</enabled>
+            <isright>true</isright>
+            <position />
+            <keyboard_key />
+            <description>Funcionan como repositorios del conocimiento.</description>
+            <explanation />
+          </answer>
+          <answer>
+            <enabled>true</enabled>
+            <isright>false</isright>
+            <position />
+            <keyboard_key />
+            <description>Organizar el conocimiento, en una biblioteca.</description>
+            <explanation />
+          </answer>
+          <answer>
+            <enabled>true</enabled>
+            <isright>false</isright>
+            <position />
+            <keyboard_key />
+            <description>Proporcionan acceso a través de portales empresariales.</description>
+            <explanation />
+          </answer>
+          <answer>
+            <enabled>true</enabled>
+            <isright>false</isright>
+            <position />
+            <keyboard_key />
+            <description>Proporcionan herramientas para acceder información de bases de datos.</description>
+            <explanation />
+          </answer>
+        </question>
+        <question>
+          <enabled>true</enabled>
+          <type>multiple</type>
+          <difficulty>1</difficulty>
+          <position />
+          <timer />
+          <fullscreen>false</fullscreen>
+          <inline_answers>false</inline_answers>
+          <auto_next>false</auto_next>
+          <description>Seleccione cual es un número</description>
+          <explanation />
+          <answer>
+            <enabled>true</enabled>
+            <isright>true</isright>
+            <position />
+            <keyboard_key />
+            <description>34</description>
+            <explanation />
+          </answer>
+          <answer>
+            <enabled>true</enabled>
+            <isright>false</isright>
+            <position />
+            <keyboard_key />
+            <description>a</description>
+            <explanation />
+          </answer>
+          <answer>
+            <enabled>true</enabled>
+            <isright>true</isright>
+            <position />
+            <keyboard_key />
+            <description>67</description>
+            <explanation />
+          </answer>
+          <answer>
+            <enabled>true</enabled>
+            <isright>false</isright>
+            <position />
+            <keyboard_key />
+            <description>Ñ</description>
+            <explanation />
+          </answer>
+        </question>
+        <question>
+          <enabled>true</enabled>
+          <type>ordering</type>
+          <difficulty>1</difficulty>
+          <position />
+          <timer />
+          <fullscreen>false</fullscreen>
+          <inline_answers>false</inline_answers>
+          <auto_next>false</auto_next>
+          <description>Ordene el funcionamiento del programa</description>
+          <explanation />
+          <answer>
+            <enabled>true</enabled>
+            <isright>false</isright>
+            <position>1</position>
+            <keyboard_key />
+            <description>Transforma doc a texto plano</description>
+            <explanation />
+          </answer>
+          <answer>
+            <enabled>true</enabled>
+            <isright>false</isright>
+            <position>2</position>
+            <keyboard_key />
+            <description>Transforma texto plano a xml</description>
+            <explanation />
+          </answer>
+          <answer>
+            <enabled>true</enabled>
+            <isright>false</isright>
+            <position>3</position>
+            <keyboard_key />
+            <description>Escribe el fichero xml</description>
+            <explanation />
+          </answer>
+        </question>
+        <question>
+          <enabled>true</enabled>
+          <type>text</type>
+          <difficulty>1</difficulty>
+          <position />
+          <timer />
+          <fullscreen>false</fullscreen>
+          <inline_answers>false</inline_answers>
+          <auto_next>false</auto_next>
+          <description>Comente un problema de su vida.</description>
+          <explanation />
+        </question>
+      </subject>
+    </module>
+  </body>
+</tcexamquestions>

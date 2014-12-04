@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./WEB-INF/Bootstrap.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="content">
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+
+            <h:form id="weluycvh">
+                <p:editor value="#{dropdownView.editor}"></p:editor>
+         
+
+                <p:commandButton   value="Submit"  icon="ui-icon-check" actionListener="#{dropdownView.editar}"/>
+                <p:commandButton  oncomplete="PF('dlg7').show();" value="Submit" update=":er" icon="ui-icon-check" actionListener="#{dropdownView.editar}"/>
+
+                <h:outputText value="#{dropdownView.editor}"></h:outputText>
+            </h:form>
+
+        <p:dialog header="Modal Dialog" widgetVar="dlg7" modal="true" height="450" width="1000">
+            <p:panelGrid columns="1">
+                <h:form id="er">
+                    <h:outputText style="margin-left: 10px" id="display" value="#{dropdownView.editor}" />
+                </h:form>
+            </p:panelGrid>
+        </p:dialog> 
+    </ui:define>
+
+</ui:composition>

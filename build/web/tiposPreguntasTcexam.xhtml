@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./WEB-INF/Bootstrap.xhtml">
+
+            <ui:define name="content">
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <div id="conte">
+                    <p:panel header="Formato de preguntas TCexam">
+                        <p:tabView orientation="left">
+                            <p:tab title="1. Opción múltiple respuesta individual">
+                                   <h:outputText style="color: #285e8e"
+                                                  value="Preguntas de opción múltiple, con una respuesta, en el documento este 
+                                                  tipo de preguntas deben tener una numeración, al final de cada pregunta
+                                                  terminar con el punto. Las respuestas deben empezar con una numeración 
+                                                  de letras, al final de la respuesta terminar con punto y marcar despues del punto con asterisco(*)
+                                                  la respuesta correcta."  />
+                                <h:panelGrid columns="2" cellpadding="10">
+                                    <img src="../bootstrap/imagenes/tipo1.png" width="95" height="115" />
+
+                                 
+                                    
+                                <img src="bootstrap/imagenes/pretx.png" width="550" height="145" />
+
+                                </h:panelGrid>
+
+                            </p:tab>
+                            <p:tab title="2. Opción Múltiple Respuesta Múltiple">
+                                <h:panelGrid columns="2" cellpadding="10">
+                                    <p:graphicImage name="bootstrap/imagenes/tcexam.png" />
+                                    <h:outputText value="Francis Ford Coppola's legendary..." />
+                                </h:panelGrid>
+                            </p:tab>
+                            <p:tab title="3. Ordenar Respuestas">
+                                <h:panelGrid columns="2" cellpadding="10">
+                                    <img src="../bootstrap/imagenes/tc.gif" width="60" height="55" alt="unll"/>
+                                    <h:outputText value="After a break of more than 15 years..." />
+                                </h:panelGrid>
+                            </p:tab>
+                            <p:tab title="4. Verdadero/Falso">
+                                <h:panelGrid columns="2" cellpadding="10">
+                                    <img src="../bootstrap/imagenes/tc.gif" width="60" height="55" alt="unll"/>
+                                    <h:outputText value="After a break of more than 15 years..." />
+                                </h:panelGrid>
+                            </p:tab>
+                            <p:tab title="5. Preguntas subjetiva o de desarrollo">
+                                <h:panelGrid columns="2" cellpadding="10">
+                                    <img src="../bootstrap/imagenes/tc.gif" width="60" height="55" alt="unll"/>
+                                    <h:outputText value="After a break of more than 15 years..." />
+                                </h:panelGrid>
+                            </p:tab>
+                        </p:tabView>
+                    </p:panel>
+                    <br></br>
+                    <div class="span9">
+                        <table >
+                            <tbody>
+                                <tr>
+                                    <td> <br><h1 style="color:windowframe">.</h1></br></td>
+                                    <td> <img src="../bootstrap/imagenes/unll_1.jpg" width="60" height="55" alt="unll"/></td>
+                                    <td> <br><h1 style="color:windowframe">.</h1></br></td>
+                                    <td> <h6 style="color: #285e8e;font-family: Arial Black">Universidad Nacional de Loja</h6> <a href="https://">unl.edu.ec</a></td>
+                                    <td> <br><h1 style="color:windowframe">.......</h1></br></td>
+                                    <td> <img src="../bootstrap/imagenes/es.png" width="60" height="55" alt="unll"/></td>
+                                    <td> <br><h1 style="color:windowframe">.</h1></br></td>
+                                    <td> <h6 style="color: #285e8e;font-family: Arial Black">Carrera de Ingenieria en Sistemas</h6> <a href="https://">areas.unl.edu.ec/energia/cis</a></td>
+                                    <td> <br><h1 style="color:windowframe">......</h1></br></td>
+                                    <td> <img src="../bootstrap/imagenes/moodle.png" width="60" height="55" alt="unll"/></td>
+                                    <td> <h6 style="color: #285e8e;font-family: Arial Black">Plataforma Moodle</h6> <a href="https://">unl.edu.ec</a></td>
+                                    <td> <br><h1 style="color:windowframe">......</h1></br></td>
+                                    <td> <img src="../bootstrap/imagenes/tc.gif" width="60" height="55" alt="unll"/></td>
+                                    <td> <br><h1 style="color:windowframe">.</h1></br></td>
+                                    <td> <h6 style="color: #285e8e;font-family: Arial Black">Plataforma TCexam</h6> <a href="https://">tcexam.org</a></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <br></br>
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
